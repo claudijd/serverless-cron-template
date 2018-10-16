@@ -9,6 +9,14 @@ This is an example of creating a function that runs as a cron job using the serv
 
 Schedule events use the `rate` or `cron` syntax.
 
+
+## Where to load parameters and get ARNs?
+
+Use the Amazon web-console or Amazon CLI to upload parameters to be used by this example.  You'll want to make sure your KMS and Parameters reside in the same region and you will need to update the serverless.yml to include ARNs for the KMS and the Parameter you would like to access.
+
+KMS arn can be found in IAM => Encryption Keys => aws/ssm
+Parameter arn can be found in AWS Systems Manager => Parameter store => INSERT_PARAMETER_NAME
+
 ## Rate syntax
 
 ```pseudo
