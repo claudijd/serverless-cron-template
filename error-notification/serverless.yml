@@ -1,0 +1,40 @@
+service: scheduled-cron-error-handling
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: us-west-2
+
+functions:
+  cron:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)
+    alarms: 
+      - functionErrors
+  secondCron:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every 2nd minute from Mon-Fri
+      - schedule: cron(0/2 * ? * MON-FRI *)
+
+plugins:
+  - serverless-plugin-aws-alerts
+
+custom:
+  alerts:
+    # stages:
+      # - production
+      # - dev
+    topics:
+      alarm:
+        topic: ${self:service}-alerts-alarm
+        notifications:
+          - protocol: email
+            endpoint: test@example.com # Change this to your email address
+    alarms:
+      - functionErrors
+      - functionThrottles

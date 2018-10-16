@@ -1,0 +1,23 @@
+service: aws-python-requirements
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: python3.6
+
+functions:
+  cron:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)
+
+# This tells serverless to create a Docker container that
+# builds the Python modules in requirements.txt
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux

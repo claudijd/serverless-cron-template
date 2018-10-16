@@ -1,0 +1,10 @@
+{
+  "name": "aws-python-requirements",
+  "version": "1.0.0",
+  "description": "Like simple-cron, except it uses code that has Python library dependencies",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serverless-python-requirements": "^4.2.4"
+  }
+}
