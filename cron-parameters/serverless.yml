@@ -1,6 +1,6 @@
 frameworkVersion: ">=1.2.0 <2.0.0"
 
-service: 'aws-python-scheduled-cron'
+service: 'cron-parameters'
 
 provider:
   name: aws

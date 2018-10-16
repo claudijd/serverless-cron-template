@@ -1,7 +1,7 @@
 {
-  "name": "aws-scheduled-cron",
+  "name": "cron-parameters",
   "version": "1.0.0",
-  "description": "Example of creating a function that runs as a cron job using the serverless `schedule` event",
-  "author": "",
+  "description": "Example of using parameter store to store parameters, including secrets",
+  "author": "Justin Dow and Jonathan Claudius",
   "license": "MIT"
 }
