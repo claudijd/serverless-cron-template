@@ -1,10 +1,10 @@
 import datetime
 import logging
+from awsparameterstoreprovider import AWSParameterstoreProvider
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-from awsparameterstoreprovider import AWSParameterstoreProvider
 
 
 def run(event, context):
