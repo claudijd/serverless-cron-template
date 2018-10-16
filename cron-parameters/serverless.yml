@@ -9,11 +9,11 @@ provider:
     - Effect: 'Allow'
       Action: 'ssm:GetParameter'
       Resource:
-        - 'arn:aws:ssm:us-east-1:163402512545:parameter/test-parameter'
+        - INSERT_PARAMETER_ARN
     - Effect: 'Allow'
       Action: 'kms:Decrypt'
       Resource:
-        - 'arn:aws:kms:us-east-1:163402512545:key/3405b041-3e31-4d7f-a898-24f2674ec20c'
+        - INSERT_KMS_ARN
 
 functions:
   cron:
