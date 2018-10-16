@@ -9,4 +9,4 @@ from awsparameterstoreprovider import AWSParameterstoreProvider
 
 def run(event, context):
     param_store = AWSParameterstoreProvider()
-    logging.error(param_store.key('test-parameter'))
+    logging.info(param_store.key('test-parameter'))

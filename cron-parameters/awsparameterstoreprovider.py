@@ -1,7 +1,7 @@
 import boto3
 import json
 import os
-from jose import jwk
+import logging
 
 
 class AWSParameterstoreProvider(object):
@@ -25,9 +25,4 @@ class AWSParameterstoreProvider(object):
         )
 
         result = ssm_response.get('Parameter')
-        try:
-            key_dict = json.loads(result.get('Value'))
-            key_construct = jwk.construct(key_dict, 'RS256')
-        except json.decoder.JSONDecodeError:
-            key_construct = jwk.construct(result.get('Value'), 'RS256')
-        return key_construct
+        return result.get('Value')

@@ -44,7 +44,7 @@ Read the [AWS cron expression syntax](http://docs.aws.amazon.com/lambda/latest/d
 
 ## Deploy
 
-In order to deploy the you endpoint simply run
+In order to deploy the you endpoint (make sure Docker is running) and run these commands
 
 ```bash
 serverless deploy
