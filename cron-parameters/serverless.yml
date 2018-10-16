@@ -1,0 +1,23 @@
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+service: 'aws-python-scheduled-cron'
+
+provider:
+  name: aws
+  runtime: python3.6
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action: 'ssm:GetParameter'
+      Resource:
+        - 'arn:aws:ssm:us-east-1:163402512545:parameter/test-parameter'
+    - Effect: 'Allow'
+      Action: 'kms:Decrypt'
+      Resource:
+        - 'arn:aws:kms:us-east-1:163402512545:key/3405b041-3e31-4d7f-a898-24f2674ec20c'
+
+functions:
+  cron:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)
