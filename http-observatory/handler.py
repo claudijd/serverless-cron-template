@@ -13,8 +13,9 @@ logger.setLevel(logging.INFO)
 def run(event, context):
     # Test out S3 upload capability
     url = 'https://raw.githubusercontent.com/mozilla/http-observatory-dashboard/master/httpobsdashboard/conf/sites.json'
-    hostname = Randomizer(url)
+    randomizer = Randomizer(url)
     scanner = ObservatoryScanner()
-    scan_result = scanner.scan(hostname.next())
+    hostname = randomizer.next()
+    scan_result = scanner.scan(hostname)
     logger.info(scan_result)
     send_to_s3(hostname, scan_result)
