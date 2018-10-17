@@ -74,6 +74,6 @@ custom:
       - functionThrottles
       - HTTPObsDownAlarm
   cfg:
-    s3BucketName: "observatoryresults"
+    s3BucketName: "observatoryresults3"
   pythonRequirements:
     dockerizePip: non-linux
