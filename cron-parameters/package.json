@@ -1,0 +1,7 @@
+{
+  "name": "cron-parameters",
+  "version": "1.0.0",
+  "description": "Example of using parameter store to store parameters, including secrets",
+  "author": "Justin Dow and Jonathan Claudius",
+  "license": "MIT"
+}

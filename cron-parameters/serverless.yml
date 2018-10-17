@@ -1,0 +1,23 @@
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+service: 'cron-parameters'
+
+provider:
+  name: aws
+  runtime: python3.6
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action: 'ssm:GetParameter'
+      Resource:
+        - INSERT_PARAMETER_ARN
+    - Effect: 'Allow'
+      Action: 'kms:Decrypt'
+      Resource:
+        - INSERT_KMS_ARN
+
+functions:
+  cron:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every minute
+      - schedule: rate(1 minute)
